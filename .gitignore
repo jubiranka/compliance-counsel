@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+
+# Virtual envs
+.venv/
+env/
+venv/
+
+# Environment files
+.env
+.env.local
+
+# DB / cache
+postgres_data/
+pgadmin_data/
+data/acts/
+data/uploads/
+data/pdfs/
+
+# IDE
+.vscode/
+.DS_Store
+
+# Ollama models
+*.gguf
