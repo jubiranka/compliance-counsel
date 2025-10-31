@@ -1,0 +1,28 @@
+[
+  {
+    "id": "CA2013_s92_4",
+    "act": "Companies Act, 2013",
+    "section_ref": "Section 92(4)",
+    "name": "Annual Return Filing",
+    "type": "Annual",
+    "due_date": "within sixty days from the date on which the annual general meeting is held",
+    "form_no": "MGT-7",
+    "penalty": "Company liable to a penalty of ₹10,000 and ₹100/day (max ₹2 lakh).",
+    "responsible_entity": "Company, Officer in default",
+    "status": "Required",
+    "notes": "To be signed by a director and the Company Secretary/CS in practice."
+  },
+  {
+    "id": "CA2013_s137_1",
+    "act": "Companies Act, 2013",
+    "section_ref": "Section 137(1)",
+    "name": "Filing Financial Statements (AOC-4)",
+    "type": "Annual",
+    "due_date": "within thirty days of the date of annual general meeting (AGM)",
+    "form_no": "AOC-4",
+    "penalty": "Company: Penalty Min ₹10,000, Max ₹2 lakh.",
+    "responsible_entity": "Company, MD, CFO, Director",
+    "status": "Required",
+    "notes": "Unadopted statements are filed provisionally."
+  }
+]

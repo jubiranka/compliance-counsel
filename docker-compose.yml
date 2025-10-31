@@ -1,0 +1,88 @@
+version: "3.9"
+
+services:
+  # ------------------------------
+  # 🗄️ PostgreSQL (with pgvector)
+  # ------------------------------
+  db:
+    image: ankane/pgvector:latest
+    container_name: compliance_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: compliance_counsel
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - compliance_network
+
+  # ------------------------------
+  # 🤖 Ollama (LLaMA 3 runtime)
+  # ------------------------------
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ~/.ollama:/root/.ollama # ✅ Mount local Ollama cache (Mac to container)
+    networks:
+      - compliance_network
+
+  # ------------------------------
+  # ⚙️ FastAPI Backend
+  # ------------------------------
+  backend:
+    build: ./backend
+    container_name: compliance_backend
+    restart: always
+    command: bash /app/start.sh
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./data/pdfs:/app/data/pdfs
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres:postgres@db:5432/compliance_counsel
+      DATA_DIR: /app/data/pdfs
+      OLLAMA_URL: http://ollama:11434/api/generate # ✅ ADDED: Backend ↔ Ollama
+      EMBED_MODEL: sentence-transformers/all-MiniLM-L6-v2
+    depends_on:
+      - db
+      - ollama
+    networks:
+      - compliance_network
+
+  # ------------------------------
+  # 🧭 pgAdmin
+  # ------------------------------
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: password123
+    ports:
+      - "5050:80"
+    volumes:
+      - ./pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - db
+    networks:
+      - compliance_network
+
+# ------------------------------
+# 🧩 Networks & Volumes
+# ------------------------------
+networks:
+  compliance_network:
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+  ollama_data:

@@ -1,0 +1,121 @@
+.
+├── backend
+│   ├── Dockerfile
+│   ├── alembic.ini
+│   ├── app
+│   │   ├── __init__.py
+│   │   ├── api
+│   │   │   ├── __init__.py
+│   │   │   ├── acts.py
+│   │   │   ├── assistant_ask.py
+│   │   │   ├── assistant_ingest.py
+│   │   │   ├── collaboration.py
+│   │   │   ├── companies.py
+│   │   │   ├── compliances.py
+│   │   │   ├── drafts.py
+│   │   │   ├── extract_runner.py
+│   │   │   ├── extraction.py
+│   │   │   ├── sections.py
+│   │   │   ├── users.py
+│   │   │   └── xtraction.py
+│   │   ├── assistant
+│   │   │   ├── embedding_service.py
+│   │   │   └── embeddings.py
+│   │   ├── auth
+│   │   │   ├── __init__.py
+│   │   │   ├── core.py
+│   │   │   ├── rbac.py
+│   │   │   └── roles.py
+│   │   ├── data
+│   │   │   ├── acts
+│   │   │   ├── compliances_MASTER.json
+│   │   │   ├── compliances_sample.csv
+│   │   │   ├── outputs
+│   │   │   └── uploads
+│   │   ├── database.py
+│   │   ├── ingest
+│   │   │   ├── __init__.py
+│   │   │   ├── constants.py
+│   │   │   ├── db_loader.py
+│   │   │   ├── extractor.py
+│   │   │   ├── pdf_ingestor.py
+│   │   │   ├── pipeline.py
+│   │   │   ├── pipeline_db.py
+│   │   │   ├── scheduler.py
+│   │   │   └── text_cleaner.py
+│   │   ├── main.py
+│   │   ├── models
+│   │   │   └── compliances.py
+│   │   ├── models.py
+│   │   ├── models_collab.py
+│   │   ├── routers
+│   │   │   └── users.py
+│   │   ├── schemas
+│   │   └── schemas.py
+│   ├── data
+│   │   ├── drafts
+│   │   │   ├── CA2013_s92_4_20251028_182642.pdf
+│   │   │   └── CA2013_s92_4_20251029_082138.pdf
+│   │   └── pdfs
+│   ├── migrations
+│   │   ├── README
+│   │   ├── env.py
+│   │   ├── script.py.mako
+│   │   └── versions
+│   │       └── c041251fa575_baseline_after_existing_schema_setup.py
+│   ├── poetry.lock
+│   ├── pyproject.toml
+│   ├── sample.pdf
+│   └── start.sh
+├── data
+│   └── pdfs
+│       └── Companies Act 2013 (Fresh Test).pdf
+├── docker-compose.yml
+├── frontend
+│   ├── README.md
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── src
+│   │   ├── App.tsx
+│   │   ├── Attributions.md
+│   │   ├── api
+│   │   │   ├── acts.ts
+│   │   │   ├── api.ts
+│   │   │   ├── companies.ts
+│   │   │   ├── compliances.ts
+│   │   │   ├── drafts.ts
+│   │   │   └── user.ts
+│   │   ├── components
+│   │   │   ├── AddCompanyPage.tsx
+│   │   │   ├── CollaborationPage.tsx
+│   │   │   ├── CompaniesPage.tsx
+│   │   │   ├── CompanyProfilePage.tsx
+│   │   │   ├── CompliancesPage.tsx
+│   │   │   ├── Dashboard.tsx
+│   │   │   ├── HelpPage.tsx
+│   │   │   ├── LoginPage.tsx
+│   │   │   ├── Navigation.tsx
+│   │   │   ├── NewsPage.tsx
+│   │   │   ├── SettingsPage.tsx
+│   │   │   ├── TestAPI.tsx
+│   │   │   ├── UploadDocumentPage.tsx
+│   │   │   ├── WorkPage.tsx
+│   │   │   ├── figma
+│   │   │   └── ui
+│   │   ├── guidelines
+│   │   │   └── Guidelines.md
+│   │   ├── index.css
+│   │   ├── main.tsx
+│   │   ├── styles
+│   │   │   └── globals.css
+│   │   └── types.ts
+│   ├── vite-env.d.ts
+│   └── vite.config.ts
+├── insert_seed_data.sql
+├── package-lock.json
+├── package.json
+├── project_tree.txt
+└── sections_output.txt
+
+29 directories, 90 files
